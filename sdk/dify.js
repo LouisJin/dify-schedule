@@ -131,7 +131,6 @@ export class DifyClient {
         responseType: "json",
       });
     }
-    console.log('response： ' + JSON.stringify(response));
     return response;
   }
 
@@ -428,6 +427,7 @@ export class WorkflowClient extends DifyClient {
             stream.on('end', async () => {
 
               const { data } = task_id ? await this.result(task_id) : { data: { outputs: '' } }
+              console.log('获取工作流执行结果', task_id, JSON.stringify(data))
               console.log('获取工作流执行结果', task_id, JSON.stringify(data.outputs))
               let outputs = {}
               if(data.outputs) {
