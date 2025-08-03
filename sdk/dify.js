@@ -131,7 +131,7 @@ export class DifyClient {
         responseType: "json",
       });
     }
-
+    console.log('response： ' + response);
     return response;
   }
 
